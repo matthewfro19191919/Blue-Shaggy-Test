@@ -52,13 +52,13 @@ class Main extends Sprite
 		var stageWidth:Int = Lib.current.stage.stageWidth;
 		var stageHeight:Int = Lib.current.stage.stageHeight;
 
-		if (game.zoom == -1.0)
+		if (FlxG.game.zoom == -1.0)
 		{
-			var ratioX:Float = stageWidth / game.width;
-			var ratioY:Float = stageHeight / game.height;
-			game.zoom = Math.min(ratioX, ratioY);
-			game.width = Math.ceil(stageWidth / game.zoom);
-			game.height = Math.ceil(stageHeight / game.zoom);
+			var ratioX:Float = stageWidth / FlxG.game.width;
+			var ratioY:Float = stageHeight / FlxG.game.height;
+			FlxG.game.zoom = Math.min(ratioX, ratioY);
+			FlxG.game.width = Math.ceil(stageWidth / FlxG.game.zoom);
+			FlxG.game.height = Math.ceil(stageHeight / FlxG.game.zoom);
 		}
 
 		ExtraKeysHandler.instance = new ExtraKeysHandler();
