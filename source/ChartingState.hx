@@ -2616,4 +2616,4 @@ class ChartingState extends MusicBeatState
 		super.destroy();
 		// Cashew.destroyAll();
 	}
-}f
+}
