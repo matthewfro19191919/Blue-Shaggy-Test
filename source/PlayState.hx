@@ -7004,8 +7004,6 @@ class NotePool extends FlxTypedGroup<Note>
 				basic.revive();
 			return cast basic;
 		}
-
-		return recycleCreateObject(ObjectClass, ObjectFactory);
 	}
 
 	override public function getFirstAvailable(?ObjectClass:Class<Note>, Force:Bool = false):Note
