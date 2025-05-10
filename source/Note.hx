@@ -249,9 +249,8 @@ class Note extends FlxSprite
 						// frames = FlxAtlasFrames.fromSparrow('assets/images/NOTE_assets.png', 'assets/images/NOTE_assets.xml');
 						useColorz = true;
 						frames = Paths.getSparrowAtlasFunk('notes/note');
-						animation.addByPrefix('end', 'end', 0, false);
-						animation.addByPrefix('hold', 'hold', 0, false);
-						animation.addByPrefix('Scroll', 'scroll', 0, false);
+						animation.addByPrefix(noteAnim + 'holdend', noteAnim + ' hold end', 24, true);
+			                        animation.addByPrefix(noteAnim + 'hold', noteAnim + ' hold piece', 24, true);
 						if (Config.noteGlow)
 						{
 							animation.addByPrefix('active', 'active', 0, false);
@@ -442,6 +441,21 @@ class Note extends FlxSprite
 
 			// if (PlayState.curStage.startsWith('school'))
 			// 	x += 30;
+		}
+	}
+
+	public function defaultRGB()
+	{
+		var mania = 3;
+		if (PlayState.SONG != null) mania = PlayState.SONG.mania;
+
+		var arr:Array<FlxColor> = Config.arrowColors[getIndex(mania, noteData)];
+
+		if (noteData > -1 /*&& noteData <= arr.length*/)
+		{
+			rgbShader.r = arr[0];
+			rgbShader.g = arr[1];
+			rgbShader.b = arr[2];
 		}
 	}
 
