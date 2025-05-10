@@ -21,17 +21,24 @@ class Character extends FlxNestedSkewSprite
 {
 	public var animOffsets:Map<String, Array<Float>> = new Map<String, Array<Float>>();
 	public var debugMode:Bool = false;
+
 	public var isPlayer:Bool = false;
 	public var curCharacter:String = 'bf';
+
 	public var holdTimer:Float = 0;
+
 	public var canAutoAnim:Bool = true;
 	public var canAutoIdle:Bool = true;
+
 	public var initFacing:Int = FlxObject.RIGHT;
+
 	public var initWidth:Float = -1;
 	public var initFrameWidth:Int = -1;
 	public var initHeight:Float;
+
 	public var camOffsets:Array<Float> = [0, 0];
 	public var posOffsets:Array<Float> = [0, 0];
+
 	// 3D
 	public var isModel:Bool = false;
 	public var modelView:ModelView;
@@ -54,10 +61,13 @@ class Character extends FlxNestedSkewSprite
 	public var animSpeed:Map<String, Float> = new Map<String, Float>();
 	public var noLoopList:Array<String> = [];
 	public var isGlass:Bool = false;
+
 	public static var modelMutex:Bool = false;
 	public static var modelMutexThing:ModelThing;
+
 	// Atlas
 	var animRedirect:Map<String, String> = [];
+
 	public var atlasContainer:AtlasThing;
 	public var atlasActive:Bool = false;
 
