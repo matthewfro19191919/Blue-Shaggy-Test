@@ -2783,16 +2783,6 @@ class PlayState extends MusicBeatState
 			{
 				// trace(PlayState.SONG.notes[Std.int(curStep / 16)].mustHitSection);
 			}
-
-			if (camFocus != "dad" && !PlayState.SONG.notes[Std.int(curStep / 16)].mustHitSection && autoCam)
-			{
-				camFocusOpponent();
-			}
-
-			if (camFocus != "bf" && PlayState.SONG.notes[Std.int(curStep / 16)].mustHitSection && autoCam)
-			{
-				camFocusBF();
-			}
 		}
 
 		// FlxG.watch.addQuick("totalBeats: ", totalBeats);
@@ -3283,7 +3273,6 @@ class PlayState extends MusicBeatState
 			if (!note.isSustainNote)
 			{
 				note.spinAmount = 0;
-				note.updateAngle();
 			}
 		}
 	}

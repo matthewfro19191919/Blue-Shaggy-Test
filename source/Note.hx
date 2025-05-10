@@ -82,6 +82,9 @@ class Note extends FlxSprite
 	public static var colorzShaders:Array<Colorz> = [];
 	public static var colorz:Array<FlxColor> = [];
 
+	public var hitsoundChartEditor:Bool = true;
+	public var hitsound:String = 'hitsound';
+
 	public function resetStuff()
 	{
 		canBeHit = false;
@@ -252,10 +255,19 @@ class Note extends FlxSprite
 					
 						var mania = 3;
 						if (PlayState.SONG != null) mania = PlayState.SONG.mania;
-						var noteAnim = (mania, noteData).note;
-
-						animation.addByPrefix(noteAnim + 'holdend', noteAnim + ' hold end', 24, true);
-			                        animation.addByPrefix(noteAnim + 'hold', noteAnim + ' hold piece', 24, true);
+						
+						animation.addByPrefix('left' + 'holdend', 'left' + ' hold end', 24, true);
+			                        animation.addByPrefix('left' + 'hold', 'left' + ' hold piece', 24, true);
+						animation.addByPrefix('down' + 'holdend', 'down' + ' hold end', 24, true);
+			                        animation.addByPrefix('down' + 'hold', 'down' + ' hold piece', 24, true);
+						animation.addByPrefix('right' + 'holdend', 'right' + ' hold end', 24, true);
+			                        animation.addByPrefix('right' + 'hold', 'right' + ' hold piece', 24, true);
+						animation.addByPrefix('rombus' + 'holdend', 'rombus' + ' hold end', 24, true);
+			                        animation.addByPrefix('rombus' + 'hold', 'rombus' + ' hold piece', 24, true);
+						animation.addByPrefix('up' + 'holdend', 'up' + ' hold end', 24, true);
+			                        animation.addByPrefix('up' + 'hold', 'up' + ' hold piece', 24, true);
+						animation.addByPrefix('circle' + 'holdend', 'circle' + ' hold end', 24, true);
+			                        animation.addByPrefix('circle' + 'hold', 'circle' + ' hold piece', 24, true);
 						if (Config.noteGlow)
 						{
 							animation.addByPrefix('active', 'active', 0, false);
@@ -288,8 +300,6 @@ class Note extends FlxSprite
 				updateHitbox();
 				antialiasing = true;
 		}
-
-		updateAngle();
 
 		if (specialNote)
 			return;
@@ -453,34 +463,8 @@ class Note extends FlxSprite
 	{
 		var mania = 3;
 		if (PlayState.SONG != null) mania = PlayState.SONG.mania;
-
-		var arr:Array<FlxColor> = Config.arrowColors[getIndex(mania, noteData)];
 	}
 
-	public function updateAngle()
-	{
-		if (specialNote)
-			return;
-		if (useColorz)
-		{
-			if (!isSustainNote)
-			{
-				switch (noteData)
-				{
-					case 0:
-						angle = 90;
-					case 1:
-						angle = 0;
-					case 2:
-						angle = 180;
-					case 3:
-						angle = 270;
-				}
-			}
-		}
-		else
-			angle = 0;
-	}
 
 	public static function getShader(index:Int, mustHit:Bool)
 	{

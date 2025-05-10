@@ -24,6 +24,7 @@ import flixel.addons.ui.FlxInputText;
 import flixel.addons.ui.FlxUI9SliceSprite;
 import flixel.addons.ui.FlxUI;
 import flixel.addons.ui.FlxUICheckBox;
+import flixel.addons.ui.FlxUICheckBox;
 import flixel.addons.ui.FlxUIDropDownMenu;
 import flixel.addons.ui.FlxUIInputText;
 import flixel.addons.ui.FlxUINumericStepper;
@@ -155,6 +156,18 @@ class ChartingState extends MusicBeatState
 	 */
 	public static var curSec:Int = 0;
 	private static var lastSong:String = '';
+
+	var check_mute_inst:FlxUICheckBox = null;
+	var check_mute_vocals:FlxUICheckBox = null;
+	var check_mute_vocals_opponent:FlxUICheckBox = null;
+	var check_vortex:FlxUICheckBox = null;
+	var check_warnings:FlxUICheckBox = null;
+	var playSoundBf:FlxUICheckBox = null;
+	var playSoundDad:FlxUICheckBox = null;
+	var UI_songTitle:FlxUIInputText;
+	#if FLX_PITCH
+	var sliderRate:FlxUISlider;
+	#end
 
 	override function create()
 	{
@@ -1262,6 +1275,8 @@ class ChartingState extends MusicBeatState
 	}
 
 	var susMultiplier = 1.0;
+	var lastConductorPos:Float;
+	var colorSine:Float = 0;
 
 	override function update(elapsed:Float)
 	{
