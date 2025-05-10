@@ -1,16 +1,6 @@
 {
   "dependencies": [
     {
-      "name": "json2object",
-      "type": "haxelib",
-      "version": null
-    },
-    {
-      "name": "hxjsonast",
-      "type": "haxelib",
-      "version": null,
-    },
-    {
       "name": "compiletime",
       "type": "haxelib",
       "version": null
