@@ -393,6 +393,14 @@ class PlayState extends MusicBeatState
 
 	override public function create()
 	{
+		if (bgEdit)
+		{
+			if (FlxG.keys.justPressed.UP)
+				bgTarget ++;
+			if (FlxG.keys.justPressed.DOWN)
+				bgTarget --;
+		}
+
 		// instance = this;
 		FlxG.mouse.visible = false;
 		PlayerSettings.gameControls();
