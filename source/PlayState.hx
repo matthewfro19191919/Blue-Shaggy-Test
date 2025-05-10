@@ -401,6 +401,11 @@ class PlayState extends MusicBeatState
 				bgTarget --;
 		}
 
+		keysArray = [];
+		for (i in 0...SONG.mania + 1){
+			keysArray.push(SONG.mania + '_key_$i');
+		}
+
 		// instance = this;
 		FlxG.mouse.visible = false;
 		PlayerSettings.gameControls();
@@ -2048,7 +2053,7 @@ class PlayState extends MusicBeatState
 			for (songNotes in section.sectionNotes)
 			{
 				var daStrumTime:Float = songNotes[0];
-				var daNoteData:Int = Std.int(songNotes[1] % 4);
+				var daNoteData:Int = Std.int(songNotes[1] % (SONG.mania + 1));
 
 				var daNotePitch:Int = 1;
 				var daNotePreset:Int = -1;
@@ -2078,6 +2083,7 @@ class PlayState extends MusicBeatState
 					var swagNote:PendingNote = new PendingNote(daStrumTime, daNoteData, null, false, songNotes[2], null, daNoteType, gottaHitNote,
 						daNotePitch, daNotePreset, daNoteVolume, daNoteLength);
 					swagNote.sustainLength = songNotes[2];
+
 
 					var susLength:Float = swagNote.sustainLength;
 
@@ -2159,7 +2165,7 @@ class PlayState extends MusicBeatState
 
 	private function generateStaticArrows(player:Int):Void
 	{
-		for (i in 0...4)
+		for (i in 0...PlayState.SONG.mania + 1)
 		{
 			// FlxG.log.add(i);
 			var babyArrow:FlxSprite = new FlxSprite(50, strumLine.y);
@@ -6005,7 +6011,7 @@ class PlayState extends MusicBeatState
 		return false;
 	}
 
-	function camFocusOpponent()
+	function camFocus()
 	{
 		// var followX = dad.getMidpoint().x + 150;
 		// var followY = dad.getMidpoint().y - 100;
