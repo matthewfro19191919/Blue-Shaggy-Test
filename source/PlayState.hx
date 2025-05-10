@@ -1001,6 +1001,42 @@ class PlayState extends MusicBeatState
 				fore.antialiasing = true;
 				fore.active = false;
 				add(fore);
+			case 'mansion':
+				defaultCamZoom = 0.9;
+				curStage = 'mansion';
+				var bg:FlxSprite = new FlxSprite(-400, -160).loadGraphic(Paths.image('bg_lemon'));
+				bg.setGraphicSize(Std.int(bg.width * 1.5));
+				bg.antialiasing = true;
+				bg.scrollFactor.set(0.95, 0.95);
+				bg.active = false;
+				add(bg);
+			case 'out':
+				defaultCamZoom = 0.8;
+				curStage = 'out';
+
+				var sky:BGElement = new BGElement('OBG/sky', -1204, -456, 0.15, 1, 0);
+				add(sky);
+
+				var clouds:BGElement = new BGElement('OBG/clouds', -988, -260, 0.25, 1, 1);
+				add(clouds);
+
+				var backMount:BGElement = new BGElement('OBG/backmount', -700, -40, 0.4, 1, 2);
+				add(backMount);
+
+				var middleMount:BGElement = new BGElement('OBG/middlemount', -240, 200, 0.6, 1, 3);
+				add(middleMount);
+
+				var ground:BGElement = new BGElement('OBG/ground', -660, 624, 1, 1, 4);
+				add(ground);
+			case 'Space':
+				defaultCamZoom = 0.9;
+				curStage = 'Space';
+				var bg:FlxSprite = new FlxSprite(0, 0).loadGraphic(Paths.image('space'));
+				bg.setGraphicSize(Std.int(bg.width * 1));
+				bg.antialiasing = true;
+				bg.scrollFactor.set(0.95, 0.95);
+				bg.active = false;
+				add(bg);
 			case 'atlantaStage':
 				curStage = 'atlantaStage';
 
