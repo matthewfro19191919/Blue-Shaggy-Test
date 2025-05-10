@@ -387,6 +387,10 @@ class PlayState extends MusicBeatState
 
 	public static final useStreamPos:Bool = true;
 
+	//bgggg
+	public static var bgTarget = 0;
+	public static var bgEdit = false;
+
 	override public function create()
 	{
 		// instance = this;
