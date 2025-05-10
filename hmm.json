@@ -65,7 +65,7 @@
       "type": "git",
       "dir": null,
       "ref": "master",
-      "url": "https://github.com/mcagabe19-stuff/hxcpp.git"
+      "url": "https://github.com/HaxeFoundation/hxcpp.git"
     },
     {
       "name": "hxp",
