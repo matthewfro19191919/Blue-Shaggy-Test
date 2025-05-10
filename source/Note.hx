@@ -450,13 +450,6 @@ class Note extends FlxSprite
 		if (PlayState.SONG != null) mania = PlayState.SONG.mania;
 
 		var arr:Array<FlxColor> = Config.arrowColors[getIndex(mania, noteData)];
-
-		if (noteData > -1 /*&& noteData <= arr.length*/)
-		{
-			rgbShader.r = arr[0];
-			rgbShader.g = arr[1];
-			rgbShader.b = arr[2];
-		}
 	}
 
 	public function updateAngle()
