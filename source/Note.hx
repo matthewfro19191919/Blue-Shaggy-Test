@@ -4,8 +4,6 @@ import sys.io.File;
 import sys.FileSystem;
 import openfl.Assets;
 import haxe.Json;
-import ExtraKeysHandler.*;
-import ExtraKeysHandler;
 import flixel.util.FlxDestroyUtil;
 import flixel.tweens.FlxTween;
 import flixel.tweens.FlxTween.FlxTweenManager;
@@ -254,7 +252,7 @@ class Note extends FlxSprite
 					
 						var mania = 3;
 						if (PlayState.SONG != null) mania = PlayState.SONG.mania;
-						var noteAnim = getAnimSet(getIndex(mania, noteData)).note;
+						var noteAnim = (mania, noteData).note;
 
 						animation.addByPrefix(noteAnim + 'holdend', noteAnim + ' hold end', 24, true);
 			                        animation.addByPrefix(noteAnim + 'hold', noteAnim + ' hold piece', 24, true);
@@ -515,14 +513,6 @@ class Note extends FlxSprite
 			flipY = PlayState.effectiveDownScroll;
 			updateHitbox();
 		}
-	}
-
-	public function getIndex(mania:Int, note:Int):Int {
-		return ExtraKeysHandler.instance.data.keys[mania].notes[note];
-	}
-
-	public function getAnimSet(index:Int):EKAnimation {
-		return ExtraKeysHandler.instance.data.animations[index];
 	}
 
 	// public function swapPositions()
