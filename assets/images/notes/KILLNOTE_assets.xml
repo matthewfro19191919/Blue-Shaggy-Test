@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextureAtlas imagePath="KILLNOTE_assets.png">
+	<!-- Created using the Spritesheet and XML generator -->
+	<!-- https://uncertainprod.github.io/FNF-Spritesheet-XML-generator-Web -->
+	<SubTexture name="down0000" x="0" y="0" width="161" height="158" frameX="2" frameY="2" frameWidth="157" frameHeight="154"/>
+	<SubTexture name="hold0000" x="161" y="68" width="54" height="48" frameX="2" frameY="2" frameWidth="50" frameHeight="44"/>
+	<SubTexture name="end0000" x="161" y="0" width="54" height="68" frameX="2" frameY="2" frameWidth="50" frameHeight="64"/>
+</TextureAtlas>
