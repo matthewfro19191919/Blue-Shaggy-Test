@@ -326,6 +326,7 @@ class ChartingState extends MusicBeatState
 				song: song_name,
 				notes: [],
 				bpm: 120,
+				mania: 3,
 				needsVoices: true,
 				player1: 'bf',
 				player2: 'dad',
@@ -655,8 +656,8 @@ class ChartingState extends MusicBeatState
 
 		var clearSectionBFButton:FlxButton = new FlxButton(210, 150, "Clear BF", clearSectionBF);
 
-		var swapSection:FlxButton = new FlxButton(10, check_notesSec.y + 40, "Swap section", function()
-		{
+		var swapSection:FlxButton = new FlxButton(10, 170, "Swap section", swapSections);
+                      {
 			for (i in 0..._song.notes[curSec].sectionNotes.length)
 			{
 				var note:Array<Dynamic> = _song.notes[curSec].sectionNotes[i];
@@ -665,7 +666,6 @@ class ChartingState extends MusicBeatState
 			}
 			updateGrid();
 		});
-
 		var blankButton:FlxButton = new FlxButton(10, 300, "Full Clear", function()
 		{
 			for (x in 0..._song.notes.length)
@@ -1237,13 +1237,12 @@ class ChartingState extends MusicBeatState
 	}
 
 	var susMultiplier = 1.0;
-	var colorSine:Float = 0;
 
 	override function update(elapsed:Float)
 	{
 		curStep = recalculateSteps();
 
-		camPos.x = -80 + (GRID_SIZE * ((_song.mania + 1) * 2));
+		camPos.x = -80 + (GRID_SIZE * (_song.mania + 1) * 2);
 
 		Conductor.songPosition = musicStream.time;
 		_song.song = typingShit.text;
@@ -1308,32 +1307,7 @@ class ChartingState extends MusicBeatState
 			}
 		}
 
-		curRenderedNotes.forEachAlive(function(note:Note) {
-		note.alpha = 1;
-		if(curSelectedNote != null) {
-		        var noteDataToCheck:Int = note.noteData;
-		        if(noteDataToCheck > -1 && note.mustPress != _song.notes[curSec].mustHitSection) noteDataToCheck += (_song.mania + 1);
-			{
-				if (curSelectedNote[0] == note.strumTime && ((curSelectedNote[2] == null && noteDataToCheck < 0) || (curSelectedNote[2] != null && curSelectedNote[1] == noteDataToCheck)))
-				{
-					colorSine += elapsed;
-					var colorVal:Float = 0.7 + Math.sin(Math.PI * colorSine) * 0.3;
-					note.color = FlxColor.fromRGBFloat(colorVal, colorVal, colorVal, 0.999); //Alpha can't be 100% or the color won't be updated for some reason, guess i will die
-				}
-			}
-		}
-		else
-		{
-		        if (FlxG.mouse.x > gridBG.x && FlxG.mouse.x < gridBG.x + gridBG.width && FlxG.mouse.y > gridBG.y && FlxG.mouse.y < gridBG.y + (GRID_SIZE * _song.notes[curSection].lengthInSteps))
-		        {
-				// FlxG.log.add('added note');
-				addNote(getStrumTime(dummyArrow.y) + sectionStartTime(), Math.floor(FlxG.mouse.x / GRID_SIZE));
-		        }
-		}
-		}
-
-
-		if (curSection * 16 == curStep && curStep % 16 == 0 && musicStream.playing)
+		if (curSection * 16 != curStep && curStep % 16 == 0 && musicStream.playing)
 		{
 			if (curSection * 16 > curStep)
 			{
@@ -1641,6 +1615,29 @@ class ChartingState extends MusicBeatState
 				if (curSelectedVolume + 0.1 <= 1.0)
 					curSelectedVolume += 0.1;
 			}
+		}
+
+		curRenderedNotes.forEachAlive(function(note:Note) {
+		note.alpha = 1;
+		if(curSelectedNote != null) {
+		        var noteDataToCheck:Int = note.noteData;
+		        if(noteDataToCheck > -1 && note.mustPress != _song.notes[curSec].mustHitSection) noteDataToCheck += (_song.mania + 1));
+			{
+				if (curSelectedNote[0] == note.strumTime && ((curSelectedNote[2] == null && noteDataToCheck < 0) || (curSelectedNote[2] != null && curSelectedNote[1] == noteDataToCheck)))
+				{
+					colorSine += elapsed;
+					var colorVal:Float = 0.7 + Math.sin(Math.PI * colorSine) * 0.3;
+					note.color = FlxColor.fromRGBFloat(colorVal, colorVal, colorVal, 0.999); //Alpha can't be 100% or the color won't be updated for some reason, guess i will die
+				}
+			}
+		}
+		else
+		{
+		        if (FlxG.mouse.x > gridBG.x && FlxG.mouse.x < gridBG.x + gridBG.width && FlxG.mouse.y > gridBG.y && FlxG.mouse.y < gridBG.y + (GRID_SIZE * _song.notes[curSection].lengthInSteps))
+		        {
+				// FlxG.log.add('added note');
+				addNote(getStrumTime(dummyArrow.y) + sectionStartTime(), Math.floor(FlxG.mouse.x / GRID_SIZE));
+		        }
 		}
 
 		_song.bpm = tempBpm;
@@ -2601,4 +2598,4 @@ class ChartingState extends MusicBeatState
 		super.destroy();
 		// Cashew.destroyAll();
 	}
-}
+}f
