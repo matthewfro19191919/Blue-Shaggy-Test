@@ -1333,7 +1333,7 @@ class ChartingState extends MusicBeatState
 		}
 
 
-		if (curSection * 16 != curStep && curStep % 16 == 0 && musicStream.playing)
+		if (curSection * 16 == curStep && curStep % 16 == 0 && musicStream.playing)
 		{
 			if (curSection * 16 > curStep)
 			{
