@@ -97,7 +97,7 @@ class Character extends FlxNestedSkewSprite
 
 				addOffset('idle', 0, 0);
 				addOffset("singUP", -16, 27);
-				addOffset("singRIGHT", -1, ‎-38‎);
+				addOffset("singRIGHT", -1, -38);
 				addOffset("singLEFT", 165, -114);
 				addOffset("singDOWN", -10, -160);
 
@@ -121,7 +121,7 @@ class Character extends FlxNestedSkewSprite
 
 				addOffset('idle', 0, 0);
 				addOffset("singUP", -16, 27);
-				addOffset("singRIGHT", -1, ‎-38‎);
+				addOffset("singRIGHT", -1, -38);
 				addOffset("singLEFT", 165, -114);
 				addOffset("singDOWN", -10, -160);
 
