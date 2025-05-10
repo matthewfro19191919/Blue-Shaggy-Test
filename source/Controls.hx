@@ -33,6 +33,61 @@ enum abstract Action(String) to String from String
 	var PAUSE = "pause";
 	var RESET = "reset";
 	var CHEAT = "cheat";
+
+	var A1 = 'a1';
+	var A2 = 'a2';
+	var A3 = 'a3';
+	var A4 = 'a4';
+	var A5 = 'a5';
+	var A6 = 'a6';
+	var A7 = 'a7';
+
+	var A1_P = 'a1-press';
+	var A2_P = 'a2-press';
+	var A3_P = 'a3-press';
+	var A4_P = 'a4-press';
+	var A5_P = 'a5-press';
+	var A6_P = 'a6-press';
+	var A7_P = 'a7-press';
+
+	var A1_R = 'a1-release';
+	var A2_R = 'a2-release';
+	var A3_R = 'a3-release';
+	var A4_R = 'a4-release';
+	var A5_R = 'a5-release';
+	var A6_R = 'a6-release';
+	var A7_R = 'a7-release';
+
+
+	var B1 = 'b1';
+	var B2 = 'b2';
+	var B3 = 'b3';
+	var B4 = 'b4';
+	var B5 = 'b5';
+	var B6 = 'b6';
+	var B7 = 'b7';
+	var B8 = 'b8';
+	var B9 = 'b9';
+
+	var B1_P = 'b1-press';
+	var B2_P = 'b2-press';
+	var B3_P = 'b3-press';
+	var B4_P = 'b4-press';
+	var B5_P = 'b5-press';
+	var B6_P = 'b6-press';
+	var B7_P = 'b7-press';
+	var B8_P = 'b8-press';
+	var B9_P = 'b9-press';
+
+	var B1_R = 'b1-release';
+	var B2_R = 'b2-release';
+	var B3_R = 'b3-release';
+	var B4_R = 'b4-release';
+	var B5_R = 'b5-release';
+	var B6_R = 'b6-release';
+	var B7_R = 'b7-release';
+	var B8_R = 'b8-release';
+	var B9_R = 'b9-release';
 }
 #else
 @:enum
@@ -55,6 +110,61 @@ abstract Action(String) to String from String
 	var PAUSE = "pause";
 	var RESET = "reset";
 	var CHEAT = "cheat";
+
+	var A1 = 'a1';
+	var A2 = 'a2';
+	var A3 = 'a3';
+	var A4 = 'a4';
+	var A5 = 'a5';
+	var A6 = 'a6';
+	var A7 = 'a7';
+
+	var A1_P = 'a1-press';
+	var A2_P = 'a2-press';
+	var A3_P = 'a3-press';
+	var A4_P = 'a4-press';
+	var A5_P = 'a5-press';
+	var A6_P = 'a6-press';
+	var A7_P = 'a7-press';
+
+	var A1_R = 'a1-release';
+	var A2_R = 'a2-release';
+	var A3_R = 'a3-release';
+	var A4_R = 'a4-release';
+	var A5_R = 'a5-release';
+	var A6_R = 'a6-release';
+	var A7_R = 'a7-release';
+
+
+	var B1 = 'b1';
+	var B2 = 'b2';
+	var B3 = 'b3';
+	var B4 = 'b4';
+	var B5 = 'b5';
+	var B6 = 'b6';
+	var B7 = 'b7';
+	var B8 = 'b8';
+	var B9 = 'b9';
+
+	var B1_P = 'b1-press';
+	var B2_P = 'b2-press';
+	var B3_P = 'b3-press';
+	var B4_P = 'b4-press';
+	var B5_P = 'b5-press';
+	var B6_P = 'b6-press';
+	var B7_P = 'b7-press';
+	var B8_P = 'b8-press';
+	var B9_P = 'b9-press';
+
+	var B1_R = 'b1-release';
+	var B2_R = 'b2-release';
+	var B3_R = 'b3-release';
+	var B4_R = 'b4-release';
+	var B5_R = 'b5-release';
+	var B6_R = 'b6-release';
+	var B7_R = 'b7-release';
+	var B8_R = 'b8-release';
+	var B9_R = 'b9-release';
 }
 #end
 
