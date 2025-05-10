@@ -94,19 +94,6 @@ class FreeplayState extends MusicBeatState
 
 		// addWeek(['Senpai', 'Roses', 'Thorns'], 6, ['senpai', 'senpai-angry', 'spirit']);
 
-		addSong("Tutorial", 1, "gf", 0x010, false);
-		addSong("Kickin", 1, "bf");
-		addSong("Demoniac", 1, "dad");
-		addSong("Revenant", 1, "spooky");
-		addSong("Trigger-Happy", 1, "pico");
-		addSong("Playtime", 1, "mom");
-		addSong("Zombie-Flower", 1, "lily");
-		addSong("Tune-A-Fish", 1, "atlanta");
-		addSong("Fresnel", 1, "prisma", 0x011, true, false);
-		addSong("SiO2", 1, "prisma", 0x011, true, false);
-		addSong("Bopeebo", 1, "dad", 0x010);
-		addSong("Roses", 1, "senpai", 0x010);
-		addSong("Ugh", 1, "tankman", 0x010);
 		addSong("Zen", 1, "blue-shaggy", 0x010);
 		addSong("Demagogue", 1, "blue-shaggy", 0x010);
 		addSong("Surge", 1, "blue-sshaggy", 0x010);
