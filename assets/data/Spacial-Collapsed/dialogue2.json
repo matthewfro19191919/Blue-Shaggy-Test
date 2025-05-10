@@ -1,0 +1,74 @@
+{
+	"dialogue": [
+		{
+			"expression": "shocked",
+			"text": ". . .",
+			"boxState": "normal",
+			"speed": 0.2,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "Now do you see why I try to not use too much power?",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "f_sh_ser"
+		},
+		{
+			"expression": "talk",
+			"text": "Any more than that and I think that time reseting ability of your's would reach it's limit.",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "f_sh_ser"
+		},
+		{
+			"expression": "confused",
+			"text": "beep bap bop.",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"expression": "talk",
+			"text": "Well, you got the challenge you wanted, are you happy now?",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "f_sh_ser"
+		},
+		{
+			"expression": "excited",
+			"text": "beep bap bop!",
+			"boxState": "angry",
+			"speed": 0.05,
+			"portrait": "bf"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "f_sh",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Alright then, I'm gonna leave now."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "f_sh_con",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Apperently Red and Green Shaggy are fighting each other so I have to resolve that before things get out of hand."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "beep bap."
+		},
+		{
+			"expression": "talk",
+			"text": "Well, until we meet again.",
+			"boxState": "normal",
+			"speed": 0.05,
+			"portrait": "f_sh"
+		}
+	]
+}

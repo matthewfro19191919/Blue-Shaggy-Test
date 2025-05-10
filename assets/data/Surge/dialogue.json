@@ -1,0 +1,81 @@
+{
+	"dialogue": [
+		{
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "shocked",
+			"text": "beep?"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "f_sh_con",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "What are you doing here? I thought I told you I couldn't fight you anymore."
+		},
+		{
+			"speed": 0.2,
+			"portrait": "bf",
+			"boxState": "normal",
+			"expression": "confused",
+			"text": ". . ."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "gf",
+			"boxState": "normal",
+			"expression": "confused",
+			"text": "We were just going back home and suddenly we saw you here."
+		},
+		{
+			"speed": 0.2,
+			"portrait": "f_sh_ser",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Right...."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "f_sh_ser",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "You don't understand, if I use more power, there's a chance things can get very dirty."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "angry",
+			"expression": "pissed",
+			"text": "beep bap bop beep bop bap beep!"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "f_sh_ser",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Your energy to challenge someone even if the odds aren't in favor of you..."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "f_sh_smug",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Heh, Alright, you want something more challenging, sure, but after this thats it."
+		},
+		{
+			"speed": 0.05,
+			"portrait": "bf",
+			"boxState": "angry",
+			"expression": "excited",
+			"text": "Beep!"
+		},
+		{
+			"speed": 0.05,
+			"portrait": "f_sh_smug",
+			"boxState": "normal",
+			"expression": "talk",
+			"text": "Alright, bring it on!"
+		}
+	]
+}

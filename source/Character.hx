@@ -83,6 +83,76 @@ class Character extends FlxNestedSkewSprite
 
 		switch (curCharacter)
 		{
+			case 'blue-shaggy':
+				antialiasing = false;
+				frames = Paths.getSparrowAtlasFunk("characters/blue-shaggy");
+				animation.addByPrefix('idle', 'shaggy_idle0', 30, false);
+				animation.addByPrefix('singUP', 'shaggy_up', 30, false);
+				animation.addByPrefix('singLEFT', 'shaggy_right', 30, false);
+				animation.addByPrefix('singRIGHT', 'shaggy_left', 30, false);
+				animation.addByPrefix('singDOWN', 'Sshaggy_down', 30, false);
+
+				camOffsets = [150, 50];
+				posOffsets = [0, 0];
+
+				addOffset('idle', 0, 0);
+				addOffset("singUP", -16, 27);
+				addOffset("singRIGHT", -1, ‎-38‎);
+				addOffset("singLEFT", 165, -114);
+				addOffset("singDOWN", -10, -160);
+
+
+				playAnim('idle');
+
+				setGraphicSize(Std.int(width * 1));
+				updateHitbox();
+
+			case 'blue-sshaggy':
+				antialiasing = false;
+				frames = Paths.getSparrowAtlasFunk("characters/blue-shaggy");
+				animation.addByPrefix('idle', 'shaggy_super_idle0', 15, false);
+				animation.addByPrefix('singUP', 'shaggy_sup', 15, false);
+				animation.addByPrefix('singLEFT', 'shaggy_sright', 15, false);
+				animation.addByPrefix('singRIGHT', 'shaggy_sleft', 15, false);
+				animation.addByPrefix('singDOWN', 'Sshaggy_sdown', 15, false);
+
+				camOffsets = [150, 50];
+				posOffsets = [0, 0];
+
+				addOffset('idle', 0, 0);
+				addOffset("singUP", -16, 27);
+				addOffset("singRIGHT", -1, ‎-38‎);
+				addOffset("singLEFT", 165, -114);
+				addOffset("singDOWN", -10, -160);
+
+				playAnim('idle');
+
+				setGraphicSize(Std.int(width * 1));
+				updateHitbox();
+
+			case 'blue-pshaggy':
+				antialiasing = false;
+				frames = Paths.getSparrowAtlasFunk("characters/blue-pshaggy");
+				animation.addByPrefix('idle', 'BF idle dance', 24, false);
+                                animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
+				animation.addByPrefix('singLEFT', 'BF NOTE LEFT0', 24, false);
+				animation.addByPrefix('singRIGHT', 'BF NOTE RIGHT0', 24, false);		                                                                  
+                                animation.addByPrefix('singDOWN', 'BF NOTE DOWN0', 24, false);
+
+				camOffsets = [-20, -150];
+				posOffsets = [0, 0];
+
+				addOffset('idle', -5, 0);
+				addOffset("singUP", -29, 47);
+				addOffset("singRIGHT", -68, -7);
+				addOffset("singLEFT", -7, 3);
+				addOffset("singDOWN", -50, -90);
+
+				playAnim('idle');
+
+				setGraphicSize(Std.int(width * 1));
+				updateHitbox();
+
 			case 'spirit':
 				frames = Paths.getSparrowAtlasFunk('characters/spirit');
 				animation.addByPrefix('idle', "idle spirit", 24, false);
@@ -361,6 +431,45 @@ class Character extends FlxNestedSkewSprite
 				initFacing = FlxObject.LEFT;
 
 			case 'bf':
+				createAtlas();
+
+				setAtlasAnim('idle', 'BF idle danceF');
+				setAtlasAnim('singUP', 'BF NOTE UPF');
+				setAtlasAnim('singLEFT', 'BF NOTE LEFTF');
+				setAtlasAnim('singRIGHT', 'BF NOTE RIGHTF');
+				setAtlasAnim('singDOWN', 'BF NOTE DOWNF');
+				setAtlasAnim('singUPmiss', 'BF NOTE UP MISSF');
+				setAtlasAnim('singLEFTmiss', 'BF NOTE LEFT MISSF');
+				setAtlasAnim('singRIGHTmiss', 'BF NOTE RIGHT MISSF');
+				setAtlasAnim('singDOWNmiss', 'BF NOTE DOWN MISSF');
+				setAtlasAnim('hey', 'BF HEY!!F');
+				// setAtlasAnim('attack', 'boyfriend attack');
+				setAtlasAnim('hit', 'BF hit copyF');
+				setAtlasAnim('dodge', 'boyfriend dodgeF');
+				setAtlasAnim('scared', 'BF idle shakingF', true);
+
+				loadAtlas(Paths.getImageFunk("characters/bf/spritemap"), Paths.json("characters/bf/spritemap", "images"),
+					Paths.json("characters/bf/Animation", "images"));
+
+				addOffset('idle', -5);
+				addOffset("singUP", -21, 66);
+				addOffset("singRIGHT", -51, 9);
+				addOffset("singLEFT", -7, 3);
+				addOffset("singDOWN", -26, -41);
+				addOffset("singUPmiss", -21, 65);
+				addOffset("singRIGHTmiss", -42, 18);
+				addOffset("singLEFTmiss", -9, 14);
+				addOffset("singDOWNmiss", -32, -22);
+				addOffset("hey", -8, 8);
+				addOffset('scared', -17, -5);
+				addOffset('dodge', -1, -12);
+				addOffset('hit', 17, 41);
+
+				playAnim('idle');
+
+				initFacing = FlxObject.LEFT;
+
+			case 'bf2':
 				createAtlas();
 
 				setAtlasAnim('idle', 'BF idle danceF');
