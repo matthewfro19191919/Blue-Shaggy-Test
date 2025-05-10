@@ -98,7 +98,7 @@
       "type": "git",
       "dir": null,
       "ref": "9.4.1",
-      "url": "https://github.com/mcagabe19-stuff/openfl.git"
+      "url": "https://github.com/openfl/openfl.git"
     },
     {
       "name": "polymod",
