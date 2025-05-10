@@ -133,6 +133,29 @@ class ChartingState extends MusicBeatState
 
 	var musicStream:AudioStreamThing;
 
+	var curZoom:Int = 2;
+
+	private var blockPressWhileTypingOn:Array<FlxUIInputText> = [];
+	private var blockPressWhileTypingOnStepper:Array<FlxUINumericStepper> = [];
+	private var blockPressWhileScrolling:Array<FlxUIDropDownMenu> = [];
+
+	var waveformSprite:FlxSprite;
+	var gridLayer:FlxTypedGroup<FlxSprite>;
+
+	public static var quantization:Int = 16;
+	public static var curQuant = 3;
+
+	var camPos:FlxObject;
+
+	public static var goToPlayState:Bool = false;
+	/**
+	 * Array of notes showing when each section STARTS in STEPS
+	 * Usually rounded up??
+	 */
+	public static var curSec:Int = 0;
+	public static var lastSection:Int = 0;
+	private static var lastSong:String = '';
+
 	override function create()
 	{
 		// openfl.Lib.current.stage.frameRate = 120;
@@ -1237,6 +1260,8 @@ class ChartingState extends MusicBeatState
 	}
 
 	var susMultiplier = 1.0;
+	var lastConductorPos:Float;
+	var colorSine:Float = 0;
 
 	override function update(elapsed:Float)
 	{
