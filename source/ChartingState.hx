@@ -208,7 +208,6 @@ class ChartingState extends MusicBeatState
 				song: 'Test',
 				notes: [],
 				bpm: 150,
-				mania: 3,
 				needsVoices: true,
 				player1: 'bf',
 				player2: 'dad',
@@ -1238,7 +1237,7 @@ class ChartingState extends MusicBeatState
 	}
 
 	var susMultiplier = 1.0;
-	var colorSine:Float = 0;
+
 	override function update(elapsed:Float)
 	{
 		curStep = recalculateSteps();
@@ -1273,6 +1272,40 @@ class ChartingState extends MusicBeatState
 			{
 				trace("Overlapping Notes");
 
+				curRenderedNotes.forEach(function(note:Note)
+				{
+					if (FlxG.mouse.overlaps(note))
+					{
+						deleteNote(note);
+					}
+				});
+			}
+			else
+			{
+				if (FlxG.mouse.x > gridBG.x
+					&& FlxG.mouse.x < gridBG.x + gridBG.width
+					&& FlxG.mouse.y > gridBG.y
+					&& FlxG.mouse.y < gridBG.y + (GRID_SIZE * _song.notes[curSection].lengthInSteps))
+				{
+					// FlxG.log.add('added note');
+					addNote(getStrumTime(dummyArrow.y) + sectionStartTime(), Math.floor(FlxG.mouse.x / GRID_SIZE));
+				}
+			}
+		}
+
+		if (FlxG.mouse.justPressedRight)
+		{
+			if (FlxG.mouse.overlaps(curRenderedNotes))
+			{
+				curRenderedNotes.forEach(function(note:Note)
+				{
+					if (FlxG.mouse.overlaps(note))
+					{
+						selectNote(note);
+					}
+				});
+			}
+		}
 
 		curRenderedNotes.forEachAlive(function(note:Note) {
 		note.alpha = 1;
@@ -1298,19 +1331,6 @@ class ChartingState extends MusicBeatState
 		}
 		}
 
-		if (FlxG.mouse.justPressedRight)
-		{
-			if (FlxG.mouse.overlaps(curRenderedNotes))
-			{
-				curRenderedNotes.forEach(function(note:Note)
-				{
-					if (FlxG.mouse.overlaps(note))
-					{
-						selectNote(note);
-					}
-				});
-			}
-		}
 
 		if (curSection * 16 != curStep && curStep % 16 == 0 && musicStream.playing)
 		{
