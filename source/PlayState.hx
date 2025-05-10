@@ -4003,7 +4003,6 @@ class PlayState extends MusicBeatState
 					{
 						camFollow.x = followX;
 						camFollow.y = followY;
-						camFocus = charStr;
 					}
 				}
 
@@ -6123,7 +6122,6 @@ class PlayState extends MusicBeatState
 
 		camTween.cancel();
 		camTween = FlxTween.tween(camFollow, {x: _x, y: _y}, _time, {ease: _ease, onComplete: _onComplete});
-		camFocus = _focus;
 	}
 
 	function camChangeZoom(_zoom:Float, _time:Float, _ease:Null<flixel.tweens.EaseFunction>, ?_onComplete:Null<TweenCallback> = null):Void
