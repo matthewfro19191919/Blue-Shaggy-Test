@@ -16,9 +16,9 @@ import openfl.media.SoundChannel;
 import Conductor.BPMChangeEvent;
 import Section.SwagSection;
 import Song.SwagSong;
+import flixel.FlxObject;
 import flixel.FlxG;
 import flixel.FlxSprite;
-import flixel.FlxObject;
 import flixel.addons.display.FlxGridOverlay;
 import flixel.addons.ui.FlxInputText;
 import flixel.addons.ui.FlxUI9SliceSprite;
@@ -231,6 +231,7 @@ class ChartingState extends MusicBeatState
 				song: 'Test',
 				notes: [],
 				bpm: 150,
+				mania: 3,
 				needsVoices: true,
 				player1: 'bf',
 				player2: 'dad',
@@ -449,6 +450,7 @@ class ChartingState extends MusicBeatState
 		tab_group_song.add(loadAutosaveBtn);
 		tab_group_song.add(stepperBPM);
 		tab_group_song.add(stepperSpeed);
+		tab_group_song.add(stepperMania);
 		tab_group_song.add(diffDrop);
 		// tab_group_song.add(gfDropDown);
 		tab_group_song.add(stageDropDown);
@@ -1260,14 +1262,10 @@ class ChartingState extends MusicBeatState
 	}
 
 	var susMultiplier = 1.0;
-	var lastConductorPos:Float;
-	var colorSine:Float = 0;
 
 	override function update(elapsed:Float)
 	{
 		curStep = recalculateSteps();
-
-		camPos.x = -80 + (GRID_SIZE * (_song.mania + 1) * 2);
 
 		Conductor.songPosition = musicStream.time;
 		_song.song = typingShit.text;
@@ -1641,6 +1639,7 @@ class ChartingState extends MusicBeatState
 					curSelectedVolume += 0.1;
 			}
 		}
+
 		var playedSound:Array<Bool> = [false, false, false, false]; //Prevents ouchy GF sex sounds
 		curRenderedNotes.forEachAlive(function(note:Note) {
 			note.alpha = 1;
@@ -1688,6 +1687,7 @@ class ChartingState extends MusicBeatState
 
 		var shiftThing:Int = 1;
 		if (FlxG.keys.pressed.SHIFT)
+			shiftThing = 4;
 		if (FlxG.keys.justPressed.RIGHT /*|| FlxG.keys.justPressed.D*/)
 			changeSection(curSection + shiftThing);
 		if (FlxG.keys.justPressed.LEFT /*|| FlxG.keys.justPressed.A*/)
