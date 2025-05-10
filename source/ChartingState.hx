@@ -208,6 +208,7 @@ class ChartingState extends MusicBeatState
 				song: 'Test',
 				notes: [],
 				bpm: 150,
+				mania: 3,
 				needsVoices: true,
 				player1: 'bf',
 				player2: 'dad',
@@ -343,6 +344,11 @@ class ChartingState extends MusicBeatState
 		var stepperSpeed:FlxUINumericStepper = new FlxUINumericStepper(10, 70, 0.1, 1, 0.1, 10, 1);
 		stepperSpeed.value = _song.speed;
 		stepperSpeed.name = 'song_speed';
+
+		var stepperMania:FlxUINumericStepper = new FlxUINumericStepper(100, stepperSpeed.y, 1, 3);
+		stepperMania.value = _song.mania;
+		stepperMania.name = 'song_mania';
+		blockPressWhileTypingOnStepper.push(stepperMania);
 
 		var stepperBPM:FlxUINumericStepper = new FlxUINumericStepper(10, 50, 1, 1, 1, 339, 0);
 		stepperBPM.value = Conductor.bpm;
@@ -650,7 +656,16 @@ class ChartingState extends MusicBeatState
 
 		var clearSectionBFButton:FlxButton = new FlxButton(210, 150, "Clear BF", clearSectionBF);
 
-		var swapSection:FlxButton = new FlxButton(10, 170, "Swap section", swapSections);
+		var swapSection:FlxButton = new FlxButton(10, check_notesSec.y + 40, "Swap section", function()
+		{
+			for (i in 0..._song.notes[curSec].sectionNotes.length)
+			{
+				var note:Array<Dynamic> = _song.notes[curSec].sectionNotes[i];
+				note[1] = (note[1] + (_song.mania + 1)) % ((_song.mania + 1) * 2);
+				_song.notes[curSec].sectionNotes[i] = note;
+			}
+			updateGrid();
+		});
 
 		var blankButton:FlxButton = new FlxButton(10, 300, "Full Clear", function()
 		{
@@ -1088,6 +1103,11 @@ class ChartingState extends MusicBeatState
 			else if (wname == 'song_speed')
 			{
 				_song.speed = nums.value;
+			}
+			else if (wname == 'mania')
+			{
+				_song.mania = Std.int(nums.value);
+				updateGrid();
 			}
 			else if (wname == 'song_bpm')
 			{
