@@ -1275,11 +1275,11 @@ class ChartingState extends MusicBeatState
 
 
 		curRenderedNotes.forEachAlive(function(note:Note) {
-			note.alpha = 1;
-			if(curSelectedNote != null) {
-				var noteDataToCheck:Int = note.noteData;
-				if(noteDataToCheck > -1 && note.mustPress != _song.notes[curSec].mustHitSection) noteDataToCheck += (_song.mania + 1);
-
+		note.alpha = 1;
+		if(curSelectedNote != null) {
+		        var noteDataToCheck:Int = note.noteData;
+		        if(noteDataToCheck > -1 && note.mustPress != _song.notes[curSec].mustHitSection) noteDataToCheck += (_song.mania + 1);
+			{
 				if (curSelectedNote[0] == note.strumTime && ((curSelectedNote[2] == null && noteDataToCheck < 0) || (curSelectedNote[2] != null && curSelectedNote[1] == noteDataToCheck)))
 				{
 					colorSine += elapsed;
@@ -1287,18 +1287,15 @@ class ChartingState extends MusicBeatState
 					note.color = FlxColor.fromRGBFloat(colorVal, colorVal, colorVal, 0.999); //Alpha can't be 100% or the color won't be updated for some reason, guess i will die
 				}
 			}
-			}
-			else
-			{
-				if (FlxG.mouse.x > gridBG.x
-					&& FlxG.mouse.x < gridBG.x + gridBG.width
-					&& FlxG.mouse.y > gridBG.y
-					&& FlxG.mouse.y < gridBG.y + (GRID_SIZE * _song.notes[curSection].lengthInSteps))
-				{
-					// FlxG.log.add('added note');
-					addNote(getStrumTime(dummyArrow.y) + sectionStartTime(), Math.floor(FlxG.mouse.x / GRID_SIZE));
-				}
-			}
+		}
+		else
+		{
+		        if (FlxG.mouse.x > gridBG.x && FlxG.mouse.x < gridBG.x + gridBG.width && FlxG.mouse.y > gridBG.y && FlxG.mouse.y < gridBG.y + (GRID_SIZE * _song.notes[curSection].lengthInSteps))
+		        {
+				// FlxG.log.add('added note');
+				addNote(getStrumTime(dummyArrow.y) + sectionStartTime(), Math.floor(FlxG.mouse.x / GRID_SIZE));
+		        }
+		}
 		}
 
 		if (FlxG.mouse.justPressedRight)
