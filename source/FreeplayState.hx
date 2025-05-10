@@ -107,6 +107,10 @@ class FreeplayState extends MusicBeatState
 		addSong("Bopeebo", 1, "dad", 0x010);
 		addSong("Roses", 1, "senpai", 0x010);
 		addSong("Ugh", 1, "tankman", 0x010);
+		addSong("Zen", 1, "blue-shaggy", 0x010);
+		addSong("Demagogue", 1, "blue-shaggy", 0x010);
+		addSong("Surge", 1, "blue-sshaggy", 0x010);
+		addSong("Spacial-Collapsed", 1, "blue-pshaggy", 0x010);
 
 		// LOAD CHARACTERS
 
