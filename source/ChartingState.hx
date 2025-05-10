@@ -1237,6 +1237,7 @@ class ChartingState extends MusicBeatState
 	}
 
 	var susMultiplier = 1.0;
+	var colorSine:Float = 0;
 
 	override function update(elapsed:Float)
 	{
