@@ -258,9 +258,18 @@ class Note extends FlxSprite
 						}
 
 					case 1:
-						loadGraphic(Paths.getImagePNG("notes/minenote"));
+						// frames = FlxAtlasFrames.fromSparrow('assets/images/KILLNOTE_assets.png', 'assets/images/KILLNOTE_assets.xml');
+						useColorz = true;
+						frames = Paths.getSparrowAtlasFunk('notes/KILLNOTE_assets');
+						animation.addByPrefix('end', 'end', 0, false);
+						animation.addByPrefix('hold', 'hold', 0, false);
+						animation.addByPrefix('Scroll', 'scroll', 0, false);
+						if (Config.noteGlow)
+						{
+							animation.addByPrefix('active', 'active', 0, false);
+						}
 					case 2:
-						loadGraphic(Paths.getImagePNG("notes/warningnote"));
+						loadGraphic(Paths.getImagePNG("weeb/pixelUI/warningnote"));
 					case 3:
 						loadGraphic(Paths.getImagePNG("notes/healnote"));
 					case 4:
