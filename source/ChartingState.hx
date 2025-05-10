@@ -657,7 +657,7 @@ class ChartingState extends MusicBeatState
 		var clearSectionBFButton:FlxButton = new FlxButton(210, 150, "Clear BF", clearSectionBF);
 
 		var swapSection:FlxButton = new FlxButton(10, 170, "Swap section", swapSections);
-                      {
+                {
 			for (i in 0..._song.notes[curSec].sectionNotes.length)
 			{
 				var note:Array<Dynamic> = _song.notes[curSec].sectionNotes[i];
@@ -665,7 +665,7 @@ class ChartingState extends MusicBeatState
 				_song.notes[curSec].sectionNotes[i] = note;
 			}
 			updateGrid();
-		});
+		};
 		var blankButton:FlxButton = new FlxButton(10, 300, "Full Clear", function()
 		{
 			for (x in 0..._song.notes.length)
