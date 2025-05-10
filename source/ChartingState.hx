@@ -1616,13 +1616,13 @@ class ChartingState extends MusicBeatState
 					curSelectedVolume += 0.1;
 			}
 		}
-
+		var playedSound:Array<Bool> = [false, false, false, false]; //Prevents ouchy GF sex sounds
 		curRenderedNotes.forEachAlive(function(note:Note) {
-		note.alpha = 1;
-		if(curSelectedNote != null) {
-		        var noteDataToCheck:Int = note.noteData;
-		        if(noteDataToCheck > -1 && note.mustPress != _song.notes[curSec].mustHitSection + (noteDataToCheck += (_song.mania + 1)))
-			{
+			note.alpha = 1;
+			if(curSelectedNote != null) {
+				var noteDataToCheck:Int = note.noteData;
+				if(noteDataToCheck > -1 && note.mustPress != _song.notes[curSec].mustHitSection) noteDataToCheck += (_song.mania + 1);
+
 				if (curSelectedNote[0] == note.strumTime && ((curSelectedNote[2] == null && noteDataToCheck < 0) || (curSelectedNote[2] != null && curSelectedNote[1] == noteDataToCheck)))
 				{
 					colorSine += elapsed;
@@ -1630,21 +1630,40 @@ class ChartingState extends MusicBeatState
 					note.color = FlxColor.fromRGBFloat(colorVal, colorVal, colorVal, 0.999); //Alpha can't be 100% or the color won't be updated for some reason, guess i will die
 				}
 			}
-		}
-		else
-		{
-		        if (FlxG.mouse.x > gridBG.x && FlxG.mouse.x < gridBG.x + gridBG.width && FlxG.mouse.y > gridBG.y && FlxG.mouse.y < gridBG.y + (GRID_SIZE * _song.notes[curSection].lengthInSteps))
-		        {
-				// FlxG.log.add('added note');
-				addNote(getStrumTime(dummyArrow.y) + sectionStartTime(), Math.floor(FlxG.mouse.x / GRID_SIZE));
-		        }
-		}
+
+			if(note.strumTime <= Conductor.songPosition) {
+				note.alpha = 0.4;
+				if(note.strumTime > lastConductorPos && FlxG.sound.music.playing && note.noteData > -1) {
+					var data:Int = note.noteData % (_song.mania + 1);
+					var noteDataToCheck:Int = note.noteData;
+					if(noteDataToCheck > -1 && note.mustPress != _song.notes[curSec].mustHitSection) noteDataToCheck += (_song.mania + 1);
+						strumLineNotes.members[noteDataToCheck].playAnim('confirm', true);
+						strumLineNotes.members[noteDataToCheck].resetAnim = ((note.sustainLength / 1000) + 0.15) / playbackSpeed;
+					if(!playedSound[data]) {
+						if(note.hitsoundChartEditor && ((playSoundBf.checked && note.mustPress) || (playSoundDad.checked && !note.mustPress)))
+						{
+							var soundToPlay = note.hitsound;
+							if(_song.player1 == 'gf') //Easter egg
+								soundToPlay = 'GF_' + Std.string(data + 1);
+
+							FlxG.sound.play(Paths.sound(soundToPlay)).pan = note.noteData < (_song.mania + 1)? -0.3 : 0.3; //would be coolio
+							playedSound[data] = true;
+						}
+
+						data = note.noteData;
+						if(note.mustPress != _song.notes[curSec].mustHitSection)
+						{
+							data += 4;
+						}
+					}
+				}
+			}
+		});
 
 		_song.bpm = tempBpm;
 
 		var shiftThing:Int = 1;
 		if (FlxG.keys.pressed.SHIFT)
-			shiftThing = 4;
 		if (FlxG.keys.justPressed.RIGHT /*|| FlxG.keys.justPressed.D*/)
 			changeSection(curSection + shiftThing);
 		if (FlxG.keys.justPressed.LEFT /*|| FlxG.keys.justPressed.A*/)
