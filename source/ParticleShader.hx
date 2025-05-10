@@ -9,6 +9,6 @@ class ParticleShader extends GPUParticleShader
         super.fragment();
 		color.rgb = color.rgb * colorv.rgb;
 		color.rgba *= colorv.a;
-		this.gl_FragColor = color * lifeAlpha * gl_openfl_Alphav * stageSizeAlpha.z;
+		this.gl_FragColor = color * lifeAlpha * gl_openfl_Alphav;
 	}
 }
