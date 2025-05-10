@@ -1621,7 +1621,7 @@ class ChartingState extends MusicBeatState
 		note.alpha = 1;
 		if(curSelectedNote != null) {
 		        var noteDataToCheck:Int = note.noteData;
-			if(noteDataToCheck > -1 && note.mustPress != _song.notes[curSec].mustHitSection) noteDataToCheck += (_song.mania + 1);
+		        if(noteDataToCheck > -1 && note.mustPress != _song.notes[curSec].mustHitSection + (noteDataToCheck += (_song.mania + 1)))
 			{
 				if (curSelectedNote[0] == note.strumTime && ((curSelectedNote[2] == null && noteDataToCheck < 0) || (curSelectedNote[2] != null && curSelectedNote[1] == noteDataToCheck)))
 				{
