@@ -153,6 +153,29 @@ class Character extends FlxNestedSkewSprite
 				setGraphicSize(Std.int(width * 1));
 				updateHitbox();
 
+			case 'bf-shaggy':
+				antialiasing = false;
+				frames = Paths.getSparrowAtlasFunk("characters/bf-shaggy");
+				animation.addByPrefix('idle', 'BF idle dance', 24, false);
+                                animation.addByPrefix('singUP', 'BF NOTE UP0', 24, false);
+				animation.addByPrefix('singLEFT', 'BF NOTE LEFT0', 24, false);
+				animation.addByPrefix('singRIGHT', 'BF NOTE RIGHT0', 24, false);		                                                                  
+                                animation.addByPrefix('singDOWN', 'BF NOTE DOWN0', 24, false);
+
+				camOffsets = [-20, -150];
+				posOffsets = [0, 0];
+
+				addOffset('idle', -5, 0);
+				addOffset("singUP", -29, 47);
+				addOffset("singRIGHT", -68, -7);
+				addOffset("singLEFT", -7, 3);
+				addOffset("singDOWN", -50, -90);
+
+				playAnim('idle');
+
+				setGraphicSize(Std.int(width * 1));
+				updateHitbox();
+
 			case 'spirit':
 				frames = Paths.getSparrowAtlasFunk('characters/spirit');
 				animation.addByPrefix('idle', "idle spirit", 24, false);
