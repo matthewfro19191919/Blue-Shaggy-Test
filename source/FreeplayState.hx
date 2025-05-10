@@ -98,6 +98,7 @@ class FreeplayState extends MusicBeatState
 		addSong("Demagogue", 1, "blue-shaggy", 0x010);
 		addSong("Surge", 1, "blue-sshaggy", 0x010);
 		addSong("Spacial-Collapsed", 1, "blue-pshaggy", 0x010);
+		addSong("Paradoxial", 1, "rshaggy", 0x010);
 
 		// LOAD CHARACTERS
 
