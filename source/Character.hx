@@ -87,6 +87,7 @@ class Character extends FlxNestedSkewSprite
 				antialiasing = false;
 				frames = Paths.getSparrowAtlasFunk("characters/blue-shaggy");
 				animation.addByPrefix('idle', 'shaggy_idle0', 30, false);
+				animation.addByPrefix('idle2', 'shaggy_idle2', 30, false);
 				animation.addByPrefix('singUP', 'shaggy_up', 30, false);
 				animation.addByPrefix('singLEFT', 'shaggy_right', 30, false);
 				animation.addByPrefix('singRIGHT', 'shaggy_left', 30, false);
@@ -176,6 +177,30 @@ class Character extends FlxNestedSkewSprite
 				setGraphicSize(Std.int(width * 1));
 				updateHitbox();
 
+			case 'rshaggy':
+				antialiasing = false;
+				frames = Paths.getSparrowAtlasFunk("characters/shaggy_red");
+				animation.addByPrefix('idle', 'shaggy_idle0', 30, false);
+				animation.addByPrefix('idle2', 'shaggy_idle2', 30, false);
+				animation.addByPrefix('singUP', 'shaggy_up', 30, false);
+				animation.addByPrefix('singLEFT', 'shaggy_right', 30, false);
+				animation.addByPrefix('singRIGHT', 'shaggy_left', 30, false);
+				animation.addByPrefix('singDOWN', 'Sshaggy_down', 30, false);
+
+				camOffsets = [150, 50];
+				posOffsets = [0, 0];
+
+				addOffset('idle', 0, 0);
+				addOffset("singUP", -16, 27);
+				addOffset("singRIGHT", -1, -38);
+				addOffset("singLEFT", 165, -114);
+				addOffset("singDOWN", -10, -160);
+
+
+				playAnim('idle');
+
+				setGraphicSize(Std.int(width * 1));
+				updateHitbox();
 			case 'spirit':
 				frames = Paths.getSparrowAtlasFunk('characters/spirit');
 				animation.addByPrefix('idle', "idle spirit", 24, false);
