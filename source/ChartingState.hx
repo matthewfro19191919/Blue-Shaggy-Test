@@ -1238,10 +1238,12 @@ class ChartingState extends MusicBeatState
 	}
 
 	var susMultiplier = 1.0;
-
+	var colorSine:Float = 0;
 	override function update(elapsed:Float)
 	{
 		curStep = recalculateSteps();
+
+		camPos.x = -80 + (GRID_SIZE * ((_song.mania + 1) * 2));
 
 		Conductor.songPosition = musicStream.time;
 		_song.song = typingShit.text;
@@ -1271,13 +1273,20 @@ class ChartingState extends MusicBeatState
 			{
 				trace("Overlapping Notes");
 
-				curRenderedNotes.forEach(function(note:Note)
+
+		curRenderedNotes.forEachAlive(function(note:Note) {
+			note.alpha = 1;
+			if(curSelectedNote != null) {
+				var noteDataToCheck:Int = note.noteData;
+				if(noteDataToCheck > -1 && note.mustPress != _song.notes[curSec].mustHitSection) noteDataToCheck += (_song.mania + 1);
+
+				if (curSelectedNote[0] == note.strumTime && ((curSelectedNote[2] == null && noteDataToCheck < 0) || (curSelectedNote[2] != null && curSelectedNote[1] == noteDataToCheck)))
 				{
-					if (FlxG.mouse.overlaps(note))
-					{
-						deleteNote(note);
-					}
-				});
+					colorSine += elapsed;
+					var colorVal:Float = 0.7 + Math.sin(Math.PI * colorSine) * 0.3;
+					note.color = FlxColor.fromRGBFloat(colorVal, colorVal, colorVal, 0.999); //Alpha can't be 100% or the color won't be updated for some reason, guess i will die
+				}
+			}
 			}
 			else
 			{
