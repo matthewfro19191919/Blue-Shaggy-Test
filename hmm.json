@@ -8,12 +8,12 @@
     {
       "name": "flixel",
       "type": "haxelib",
-      "version": "4.11.0"
+      "version": "5.9.0"
     },
     {
       "name": "flixel-addons",
       "type": "haxelib",
-      "version": "2.9.0"
+      "version": "3.3.0"
     },
     {
       "name": "flixel-ui",
