@@ -8,12 +8,12 @@
     {
       "name": "flixel",
       "type": "haxelib",
-      "version": "5.9.0"
+      "version": "4.11.0"
     },
     {
       "name": "flixel-addons",
       "type": "haxelib",
-      "version": "3.3.0"
+      "version": "2.9.0"
     },
     {
       "name": "flixel-ui",
@@ -76,6 +76,13 @@
       "dir": null,
       "ref": "f9b83215acd586dc28754b4ae7f69d4c06c3b4d3",
       "url": "https://github.com/EliteMasterEric/jsonpatch"
+    },
+    {
+      "name": "jsonpath",
+      "type": "git",
+      "dir": null,
+      "ref": "7a24193717b36393458c15c0435bb7c4470ecdda",
+      "url": "https://github.com/EliteMasterEric/jsonpath"
     },
     {
       "name": "lime",
