@@ -62,10 +62,8 @@
     },
     {
       "name": "hxcpp",
-      "type": "git",
-      "dir": null,
-      "ref": "master",
-      "url": "https://github.com/HaxeFoundation/hxcpp.git"
+      "type": "haxelib",
+      "version": null
     },
     {
       "name": "hxp",
