@@ -3223,7 +3223,7 @@ class PlayState extends MusicBeatState
 				var pending:PendingNote = pendingNotes[0];
 				var prev:Note = (pending.prevNote == null ? null : noteMap[pending.prevNote]);
 				var root:Note = (pending.rootNote == null ? null : noteMap[pending.rootNote]);
-				var dunceNote:Note = notes.recycle(Note);
+				var dunceNote:Note = (pending.prevNote == null ? null : noteMap[pending.prevNote]);
 				// var dunceNote:Note = new Note();
 				dunceNote.setupNote(pending.strumTime, pending.noteData, false, prev, pending.isSustainNote, root, pending.noteType, musicStream,
 					pending.mustPress, pending.isLeafNote, pending.sustainLength);
@@ -4283,7 +4283,7 @@ class PlayState extends MusicBeatState
 					var sprite = ghotis.members[0].clone();
 					return sprite;
 				};
-				var fish = ghotis.recycle(FlxSprite, cloneFactory);
+				var fish = FlxSprite;
 				var speed:Float = 8;
 				if (target != -1)
 				{
