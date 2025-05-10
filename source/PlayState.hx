@@ -122,7 +122,6 @@ class PlayState extends MusicBeatState
 	public static final evilSchoolSongs = ["thorns"];
 	public static final pixelSongs = ["senpai", "roses", "thorns"];
 
-	private var camFocus:String = "";
 	private var camTween:FlxTween;
 	private var camZoomTween:FlxTween;
 	private var uiZoomTween:FlxTween;
@@ -141,6 +140,10 @@ class PlayState extends MusicBeatState
 	public var dad:Character;
 	public var gf:Character;
 	public var boyfriend:Boyfriend;
+
+	// Less laggy controls
+	private var keysArray:Array<String>;
+	public var songName:String;
 
 	// // Wacky input stuff=========================
 	// private var skipListener:Bool = false;
