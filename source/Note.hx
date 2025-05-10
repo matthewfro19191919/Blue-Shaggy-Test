@@ -249,6 +249,11 @@ class Note extends FlxSprite
 						// frames = FlxAtlasFrames.fromSparrow('assets/images/NOTE_assets.png', 'assets/images/NOTE_assets.xml');
 						useColorz = true;
 						frames = Paths.getSparrowAtlasFunk('notes/note');
+					
+						var mania = 3;
+						if (PlayState.SONG != null) mania = PlayState.SONG.mania;
+						var noteAnim = getAnimSet(getIndex(mania, noteData)).note;
+
 						animation.addByPrefix(noteAnim + 'holdend', noteAnim + ' hold end', 24, true);
 			                        animation.addByPrefix(noteAnim + 'hold', noteAnim + ' hold piece', 24, true);
 						if (Config.noteGlow)
