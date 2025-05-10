@@ -1,7 +1,6 @@
 {
   "dependencies": [
     {
-    {
       "name": "json2object",
       "type": "haxelib",
       "version": null
