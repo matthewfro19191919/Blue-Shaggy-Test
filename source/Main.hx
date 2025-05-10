@@ -10,8 +10,6 @@ import flixel.FlxGame;
 import openfl.display.FPS;
 import openfl.display.Sprite;
 
-import ExtraKeysHandler;
-
 class Main extends Sprite
 {
 	public static var fpsDisplay:FPS_Mem;
@@ -47,24 +45,6 @@ class Main extends Sprite
 		charToSong[who] = song;
 	}
 
-	private function setupGame():Void
-	{
-		var stageWidth:Int = Lib.current.stage.stageWidth;
-		var stageHeight:Int = Lib.current.stage.stageHeight;
-
-		if (FlxG.game.zoom == -1.0)
-		{
-			var ratioX:Float = stageWidth / FlxG.game.width;
-			var ratioY:Float = stageHeight / FlxG.game.height;
-			FlxG.game.zoom = Math.min(ratioX, ratioY);
-			FlxG.game.width = Math.ceil(stageWidth / FlxG.game.zoom);
-			FlxG.game.height = Math.ceil(stageHeight / FlxG.game.zoom);
-		}
-
-		ExtraKeysHandler.instance = new ExtraKeysHandler();
-		config.KeyBindMenu.defaultKeys();
-	}
-	
 	public static function setCampaign(who:String, campaign:Array<String>, difficulties:Array<String>)
 	{
 		var songs:Array<String> = [];
